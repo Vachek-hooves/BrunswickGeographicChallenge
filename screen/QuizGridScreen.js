@@ -39,6 +39,7 @@ const QuizGridScreen = ({navigation, route}) => {
         keyExtractor={item => item.id}
         contentContainerStyle={{padding: SPACING}}
         renderItem={({item, index}) => {
+          const itemId = item.id;
           const inputRange = [
             -1,
             0,
@@ -62,7 +63,9 @@ const QuizGridScreen = ({navigation, route}) => {
 
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate('QuizPlayScreen', mode)}>
+              onPress={() =>
+                navigation.navigate('QuizPlayScreen', {mode, itemId})
+              }>
               <Animated.View
                 style={{
                   // height: ITEM_SIZE,

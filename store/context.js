@@ -8,6 +8,7 @@ export const AppContext = createContext({
   training: [],
   exploration: [],
   competition: [],
+  returnQuizMode: () => {},
 });
 
 export const AppProvider = ({children}) => {
@@ -72,7 +73,20 @@ export const AppProvider = ({children}) => {
     }
   };
 
-  const value = {training, exploration, competition};
+  const returnQuizMode = mode => {
+    switch (mode) {
+      case 'training':
+        return training;
+      case 'exploration':
+        return exploration;
+      case 'competition':
+        return competition;
+      default:
+        break;
+    }
+  };
+
+  const value = {training, exploration, competition, returnQuizMode};
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 

@@ -1,5 +1,6 @@
 export const APP_DATA = [
   {
+    activated: true,
     id: 'st1',
     header: 'Myths and Legends',
     questionsBox: [
@@ -99,6 +100,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st2',
     header: 'Architectural Details',
     questionsBox: [
@@ -175,6 +177,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st3',
     header: 'Culinary Secrets',
     questionsBox: [
@@ -244,6 +247,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st4',
     header: 'Historical Events',
     questionsBox: [
@@ -341,6 +345,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st5',
     header: 'Famous Personalities',
     questionsBox: [
@@ -429,6 +434,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st6',
     header: 'Natural Attractions',
     questionsBox: [
@@ -505,6 +511,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st7',
     header: 'Art and Culture',
     questionsBox: [
@@ -576,6 +583,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st8',
     header: 'Traditions and Festivals',
     questionsBox: [
@@ -657,6 +665,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st9',
     header: 'Modern Attractions',
     questionsBox: [
@@ -740,6 +749,7 @@ export const APP_DATA = [
     ],
   },
   {
+    activated: false,
     id: 'st10',
     header: 'City Legends',
     questionsBox: [

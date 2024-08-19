@@ -7,7 +7,7 @@ import {useAppContext} from '../store/context';
 
 const MainScreen = () => {
   const {training, exploration, competition} = useAppContext();
-  console.log(competition);
+  // console.log(competition);
   return (
     // <MainBgImage>
     //   <BlurCustomContainer blur={1}>
