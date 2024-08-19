@@ -1,7 +1,9 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {useAppContext} from '../store/context';
 import MainLayout from '../components/Layout/MainLayout';
+import {QuestionRender} from '../components/QuizPlayComponents';
+import OptionsRender from '../components/QuizPlayComponents/OptionsRender';
 
 const QuizPlayScreen = ({route}) => {
   const {mode, itemId} = route.params;
@@ -52,7 +54,20 @@ const QuizPlayScreen = ({route}) => {
     setPoints(0);
   };
 
-  return <MainLayout blur={9}></MainLayout>;
+  return (
+    <MainLayout blur={9}>
+      <ScrollView>
+        <QuestionRender question={thisQuestion} />
+        <OptionsRender
+          options={thisOptions}
+          onPress={checkIsAnswerValid}
+          disable={unActive}
+          correct={correctOption}
+          
+        />
+      </ScrollView>
+    </MainLayout>
+  );
 };
 
 export default QuizPlayScreen;
