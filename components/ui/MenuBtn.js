@@ -18,7 +18,7 @@ export default MenuBtn;
 
 const styles = StyleSheet.create({
   btn: {
-    borderWidth: 2,
+    borderWidth: 3,
     width: '100%',
     marginVertical: 20,
     borderRadius: 34,

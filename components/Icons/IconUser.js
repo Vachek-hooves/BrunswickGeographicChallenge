@@ -16,7 +16,7 @@ const IconUser = () => {
       }}>
       <Image
         source={require('../../assets/img/icon/user.png')}
-        style={{width: 55, height: 55, tintColor: COLOR.textColor}}
+        style={{width: 55, height: 55, tintColor: COLOR.teal}}
       />
     </TouchableOpacity>
   );

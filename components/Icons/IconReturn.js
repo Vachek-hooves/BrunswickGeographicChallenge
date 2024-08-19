@@ -9,7 +9,7 @@ const IconReturn = () => {
     <TouchableOpacity onPress={() => navigation.goBack()}>
       <Image
         source={require('../../assets/img/icon/back.png')}
-        style={{tintColor: COLOR.textColor, width: 55, height: 55}}
+        style={{tintColor: COLOR.teal, width: 55, height: 55}}
       />
     </TouchableOpacity>
   );
