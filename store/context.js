@@ -5,9 +5,16 @@ import {getInitData, initData} from './asyncStorageUtils';
 export const AppContext = createContext({
   normal: [],
   hard: [],
+  training: [],
+  exploration: [],
+  competition: [],
 });
 
 export const AppProvider = ({children}) => {
+  const [training, setTraining] = useState([]);
+  const [exploration, setExploration] = useState([]);
+  const [competition, setCompetition] = useState([]);
+
   const [normal, setNormal] = useState([]);
   const [hard, setHard] = useState([]);
 
@@ -21,6 +28,32 @@ export const AppProvider = ({children}) => {
         getInitData('normal'),
         getInitData('hard'),
       ]);
+      const [training, exploration, competition] = await Promise.all([
+        getInitData('training'),
+        getInitData('exploration'),
+        getInitData('competition'),
+      ]);
+      if (training.length === 0) {
+        await initData(APP_DATA, 'training');
+        const level = await getInitData('training');
+        setTraining(level);
+      }
+      setTraining(training);
+
+      if (exploration.length === 0) {
+        await initData(APP_DATA, 'exploration');
+        const level = await getInitData('exploration');
+        setExploration(level);
+      }
+      setExploration(exploration);
+
+      if (competition.length === 0) {
+        await initData(APP_DATA, 'competition');
+        const level = await getInitData('competition');
+        setCompetition(level);
+      }
+      setCompetition(competition);
+
       if (normalData.length === 0) {
         await initData(APP_DATA, 'normal');
         const level = await getInitData('normal');
@@ -39,7 +72,7 @@ export const AppProvider = ({children}) => {
     }
   };
 
-  const value = {normal, hard};
+  const value = {training, exploration, competition};
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
