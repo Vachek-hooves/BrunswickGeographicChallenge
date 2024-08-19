@@ -1,7 +1,7 @@
 export const APP_DATA = [
   {
     id: 'st1',
-    header: 'Myths and Legends of Brunswick',
+    header: 'Myths and Legends',
     questionsBox: [
       {
         id: 'stq1',
@@ -741,7 +741,7 @@ export const APP_DATA = [
   },
   {
     id: 'st10',
-    header: 'City Legends and Superstitions',
+    header: 'City Legends',
     questionsBox: [
       {
         id: 'stq1',
