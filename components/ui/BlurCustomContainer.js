@@ -18,7 +18,7 @@ const BlurCustomContainer = ({children, blur}) => {
 export default BlurCustomContainer;
 
 const styles = StyleSheet.create({
-  blurContainer: {justifyContent: 'center', alignItems: 'center'},
+  blurContainer: {flex: 1},
   absolute: {
     position: 'absolute',
     top: 0,

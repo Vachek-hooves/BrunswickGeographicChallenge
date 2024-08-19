@@ -1,17 +1,19 @@
-import {StyleSheet, Text, View} from 'react-native';
-import {BlurCustomContainer, MainBgImage} from '../components/ui';
+import {BlurCustomContainer, MainBgImage, MenuBtn} from '../components/ui';
 import MainLayout from '../components/Layout/MainLayout';
+import {IconUser} from '../components/Icons';
 
-const MainScreen = ({navigation}) => {
+const MainScreen = () => {
   return (
     <MainBgImage>
-      {/* <BlurCustomContainer blur={1}> */}
-        <MainLayout></MainLayout>
-      {/* </BlurCustomContainer> */}
+      <BlurCustomContainer blur={1}>
+        <MainLayout>
+          <IconUser />
+          <MenuBtn screenName={'QuizListScreen'}>GAME</MenuBtn>
+          <MenuBtn screenName={'QuizAboutScreen'}>ABOUT</MenuBtn>
+        </MainLayout>
+      </BlurCustomContainer>
     </MainBgImage>
   );
 };
 
 export default MainScreen;
-
-const styles = StyleSheet.create({});
