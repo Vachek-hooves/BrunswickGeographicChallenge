@@ -738,66 +738,107 @@ export const APP_DATA = [
         right: 'City Park',
       },
     ],
-  },{
+  },
+  {
     id: 'st10',
     header: 'City Legends and Superstitions',
     questionsBox: [
       {
         id: 'stq1',
-        question: 'Which creature, according to legend, lives in the dungeons of the old castle?',
+        question:
+          'Which creature, according to legend, lives in the dungeons of the old castle?',
         options: ['Dragon', 'Ghost', 'Giant'],
         right: 'Ghost',
       },
       {
         id: 'stq2',
         question: 'Which place in Brunswick is considered cursed?',
-        options: ['Abandoned house on the hill', 'Old park', 'River on the outskirts'],
+        options: [
+          'Abandoned house on the hill',
+          'Old park',
+          'River on the outskirts',
+        ],
         right: 'Abandoned house on the hill',
       },
       {
         id: 'stq3',
-        question: 'Which legend is associated with the mysterious light in the forest?',
-        options: ['Phantom hunter', 'Fireflies', 'Will-o\'-the-wisps'],
+        question:
+          'Which legend is associated with the mysterious light in the forest?',
+        options: ['Phantom hunter', 'Fireflies', "Will-o'-the-wisps"],
         right: 'Phantom hunter',
       },
       {
         id: 'stq4',
-        question: 'Which superstition is associated with the bridge over the river?',
-        options: ['The bridge brings good luck', 'The bridge should be crossed only on odd days', 'The bridge protects against evil spirits'],
+        question:
+          'Which superstition is associated with the bridge over the river?',
+        options: [
+          'The bridge brings good luck',
+          'The bridge should be crossed only on odd days',
+          'The bridge protects against evil spirits',
+        ],
         right: 'The bridge should be crossed only on odd days',
       },
       {
         id: 'stq5',
         question: 'Which legend is told about the old clock tower?',
-        options: ['The clock shows the time of the end of the world', 'The tower is a gateway to another world', 'A wise spirit lives in the tower'],
+        options: [
+          'The clock shows the time of the end of the world',
+          'The tower is a gateway to another world',
+          'A wise spirit lives in the tower',
+        ],
         right: 'The tower is a gateway to another world',
       },
       {
         id: 'stq6',
-        question: 'Which superstition is associated with a certain tree in the center of Brunswick?',
-        options: ['The tree grants wishes', 'The tree brings bad luck', 'The tree is a place of power'],
+        question:
+          'Which superstition is associated with a certain tree in the center of Brunswick?',
+        options: [
+          'The tree grants wishes',
+          'The tree brings bad luck',
+          'The tree is a place of power',
+        ],
         right: 'The tree brings bad luck',
       },
       {
         id: 'stq7',
         question: 'Which legend is told about the old cemetery?',
-        options: ['The cemetery is guarded by a black cat', 'The cemetery hides treasures', 'Ghosts live in the cemetery'],
+        options: [
+          'The cemetery is guarded by a black cat',
+          'The cemetery hides treasures',
+          'Ghosts live in the cemetery',
+        ],
         right: 'The cemetery is guarded by a black cat',
       },
       {
         id: 'stq8',
-        question: 'Which creature, according to legend, appears at the lake during a full moon?',
+        question:
+          'Which creature, according to legend, appears at the lake during a full moon?',
         options: ['Mermaid', 'Forest spirit', 'Werewolf'],
         right: 'Werewolf',
       },
       {
         id: 'stq9',
         question: 'Which legend is told about the abandoned mine?',
-        options: ['The mine leads to an underground kingdom', 'The mine is filled with gold', 'A dragon lives in the mine'],
+        options: [
+          'The mine leads to an underground kingdom',
+          'The mine is filled with gold',
+          'A dragon lives in the mine',
+        ],
         right: 'The mine leads to an underground kingdom',
       },
-     
-  
+      {
+        id: 'stq10',
+        question:
+          'Which superstition is associated with the night sky in Brunswick?',
+        options: [
+          'Falling stars grant wishes',
+          'Stars indicate cursed places',
+          'The full moon brings good luck',
+        ],
+        right: 'Stars indicate cursed places',
+      },
+    ],
+  },
 ];
 
 export const IMAGES = [
@@ -807,7 +848,7 @@ export const IMAGES = [
     id: 'i1',
   },
   {
-    image: require('../assets/img/quizImg/ArchitecuralDetails.png'),
+    image: require('../assets/img/quizImg/ArchitecturalDetails.png'),
     name: 'ArchitecuralDetails',
     id: 'i2',
   },
@@ -817,7 +858,7 @@ export const IMAGES = [
     id: 'i3',
   },
   {
-    image: require('../assets/img/quizImg/HystoricalEvents.png'),
+    image: require('../assets/img/quizImg/HistoricalEvents.png'),
     name: 'Hystorical Events',
     id: 'i4',
   },
