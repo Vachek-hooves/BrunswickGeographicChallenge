@@ -1,11 +1,17 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {BlurCustomContainer, MainBgImage, MenuBtn} from '../components/ui';
+import SafeAreaLayout from '../components/Layout/SafeAreaLayout';
+import MainLayout from '../components/Layout/MainLayout';
 
 const QuizListScreen = () => {
   return (
-    <View>
-      <Text>QuizListScreen</Text>
-    </View>
+    <MainLayout>
+      <View style={{width: '80%'}}>
+        <MenuBtn screenName={'TrainingScreen'}>TRAINING</MenuBtn>
+        <MenuBtn screenName={'ExplorationScreen'}>EXPLORATION</MenuBtn>
+        <MenuBtn screenName={'CompetitionScreen'}>COMPETITION</MenuBtn>
+      </View>
+    </MainLayout>
   );
 };
 

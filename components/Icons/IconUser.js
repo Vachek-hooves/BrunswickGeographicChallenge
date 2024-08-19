@@ -10,7 +10,7 @@ const IconUser = () => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      style={{position: 'absolute', top: TOP, right: RIGHT}}
+      style={{position: 'absolute', top: TOP, right: RIGHT, zIndex: 1}}
       onPress={() => {
         navigation.navigate('UserProfileScreen');
       }}>

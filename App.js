@@ -6,8 +6,11 @@ import {
   MainScreen,
   QuizAboutScreen,
   QuizListScreen,
+  TrainingScreen,
   UserProfileScree,
 } from './screen';
+import ExplorationScreen from './screen/ExplorationScreen';
+import CompetitionScreen from './screen/CompetitionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +29,15 @@ function App() {
           <Stack.Screen name="UserProfileScreen" component={UserProfileScree} />
           <Stack.Screen name="QuizAboutScreen" component={QuizAboutScreen} />
           <Stack.Screen name="QuizListScreen" component={QuizListScreen} />
+          <Stack.Screen name="TrainingScreen" component={TrainingScreen} />
+          <Stack.Screen
+            name="ExplorationScreen"
+            component={ExplorationScreen}
+          />
+          <Stack.Screen
+            name="CompetitionScreen"
+            component={CompetitionScreen}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

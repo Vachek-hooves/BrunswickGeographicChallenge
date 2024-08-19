@@ -8,7 +8,7 @@ const MenuBtn = ({children, screenName, difficulty}) => {
     navigation.navigate(`${screenName}`, difficulty);
   }
   return (
-    <TouchableOpacity onPress={navigateCall}>
+    <TouchableOpacity onPress={navigateCall} style={styles.btn}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   );
@@ -17,7 +17,19 @@ const MenuBtn = ({children, screenName, difficulty}) => {
 export default MenuBtn;
 
 const styles = StyleSheet.create({
+  btn: {
+    borderWidth: 2,
+    width: '100%',
+    marginVertical: 20,
+    borderRadius: 34,
+    alignItems: 'center',
+    paddingVertical: 15,
+    borderColor: COLOR.teal,
+    backgroundColor: COLOR.brown + 90,
+  },
   text: {
     color: COLOR.textColor,
+    fontSize: 38,
+    fontWeight: '600',
   },
 });
