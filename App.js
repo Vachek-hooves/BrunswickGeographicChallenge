@@ -5,7 +5,9 @@ import {
   HiScreen,
   MainScreen,
   QuizAboutScreen,
-  QuizListScreen,
+  QuizGridScreen,
+  QuizModeListScreen,
+  QuizPlayScreen,
   TrainingScreen,
   UserProfileScree,
 } from './screen';
@@ -28,7 +30,10 @@ function App() {
           <Stack.Screen name="MainScreen" component={MainScreen} />
           <Stack.Screen name="UserProfileScreen" component={UserProfileScree} />
           <Stack.Screen name="QuizAboutScreen" component={QuizAboutScreen} />
-          <Stack.Screen name="QuizListScreen" component={QuizListScreen} />
+          <Stack.Screen
+            name="QuizModeListScreen"
+            component={QuizModeListScreen}
+          />
           <Stack.Screen name="TrainingScreen" component={TrainingScreen} />
           <Stack.Screen
             name="ExplorationScreen"
@@ -38,6 +43,8 @@ function App() {
             name="CompetitionScreen"
             component={CompetitionScreen}
           />
+          <Stack.Screen name="QuizGridScreen" component={QuizGridScreen} />
+          <Stack.Screen name="QuizPlayScreen" component={QuizPlayScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

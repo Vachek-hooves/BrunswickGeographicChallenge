@@ -7,9 +7,15 @@ const QuizListScreen = () => {
   return (
     <MainLayout>
       <View style={{width: '80%', gap: 20}}>
-        <MenuBtn screenName={'TrainingScreen'}>TRAINING</MenuBtn>
-        <MenuBtn screenName={'ExplorationScreen'}>EXPLORATION</MenuBtn>
-        <MenuBtn screenName={'CompetitionScreen'}>COMPETITION</MenuBtn>
+        <MenuBtn screenName={'QuizGridScreen'} mode={'training'}>
+          TRAINING
+        </MenuBtn>
+        <MenuBtn screenName={'QuizGridScreen'} mode={'exploration'}>
+          EXPLORATION
+        </MenuBtn>
+        <MenuBtn screenName={'QuizGridScreen'} mode={'competition'}>
+          COMPETITION
+        </MenuBtn>
       </View>
       <View style={{position: 'absolute', bottom: 60, right: 60}}>
         <IconReturn />

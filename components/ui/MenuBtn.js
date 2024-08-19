@@ -2,10 +2,10 @@ import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {COLOR} from '../constant/color';
 import {useNavigation} from '@react-navigation/native';
 
-const MenuBtn = ({children, screenName, difficulty}) => {
+const MenuBtn = ({children, screenName, mode}) => {
   const navigation = useNavigation();
   function navigateCall() {
-    navigation.navigate(`${screenName}`, difficulty);
+    navigation.navigate(`${screenName}`, mode);
   }
   return (
     <TouchableOpacity onPress={navigateCall} style={styles.btn}>

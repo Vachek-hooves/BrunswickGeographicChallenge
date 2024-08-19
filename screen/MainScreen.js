@@ -15,7 +15,7 @@ const MainScreen = () => {
     <MainLayout>
       <IconUser />
       <View style={{width: '60%'}}>
-        <MenuBtn screenName={'QuizListScreen'}>GAME</MenuBtn>
+        <MenuBtn screenName={'QuizModeListScreen'}>GAME</MenuBtn>
         <MenuBtn screenName={'QuizAboutScreen'}>ABOUT</MenuBtn>
       </View>
     </MainLayout>
