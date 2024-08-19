@@ -12,7 +12,7 @@ const MainScreen = () => {
     // <MainBgImage>
     //   <BlurCustomContainer blur={1}>
     //     <SafeAreaLayout>
-    <MainLayout>
+    <MainLayout blur={1}>
       <IconUser />
       <View style={{width: '60%'}}>
         <MenuBtn screenName={'QuizModeListScreen'}>GAME</MenuBtn>
