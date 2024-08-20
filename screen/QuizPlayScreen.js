@@ -16,6 +16,7 @@ import {
   NextBtn,
   ModalCustom,
   ImageRender,
+  StatisticRendering,
 } from '../components/QuizPlayComponents';
 import {BlurCustomContainer, MainBgImage} from '../components/ui';
 import {IMAGES} from '../data/appData';
@@ -90,6 +91,11 @@ const QuizPlayScreen = ({route, navigation}) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{padding: 10}}>
+        <StatisticRendering
+          score={points}
+          totalQuestions={questionBox.length}
+          mode={mode}
+        />
         <ImageRender image={IMAGE} name={NAME} />
         <QuestionRender question={thisQuestion} />
         <OptionsRender
@@ -100,7 +106,12 @@ const QuizPlayScreen = ({route, navigation}) => {
           onOption={currentOption}
         />
         {activeNextBtn && <NextBtn onPress={showNextQuestion} />}
-        <ModalCustom visible={showModal} playAgain={quizGameLevelRestart} />
+        <ModalCustom
+          visible={showModal}
+          playAgain={quizGameLevelRestart}
+          unlockNext={activeNextLevelTestCall}
+          score={points}
+        />
         {/* <TouchableOpacity onPress={activeNextLevelTestCall}>
           <Text>active next level </Text>
         </TouchableOpacity> */}

@@ -18,11 +18,11 @@ const ImageRender = ({image, name}) => {
       }}>
       <Text
         style={{
-          color: COLOR.orange,
-          fontSize: 18,
+          color: COLOR.textColor,
+          fontSize: 24,
           letterSpacing: 2,
           textAlign: 'center',
-          fontWeight: '500',
+          fontWeight: '700',
         }}>
         {name}
       </Text>
