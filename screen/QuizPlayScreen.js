@@ -16,10 +16,11 @@ const QuizPlayScreen = ({route, navigation}) => {
   const {mode, itemId} = route.params;
   const {returnQuizMode, activeNextLevelHandler} = useAppContext();
   const DATA = returnQuizMode(mode);
+
   const statistics = {
-    training: {lives: 6, hints: 5},
+    training: {lives: 8, hints: 0},
     exploration: {lives: 3, hints: 2},
-    competition: {lives: 2, hints: 1},
+    competition: {lives: 1, hints: 1},
   };
   const initialLives = statistics[mode].lives;
 
