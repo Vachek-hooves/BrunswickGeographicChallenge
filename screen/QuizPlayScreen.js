@@ -20,8 +20,8 @@ const QuizPlayScreen = ({route, navigation}) => {
 
   const statistics = {
     training: {lives: 8, hints: 0},
-    exploration: {lives: 4, hints: 2},
-    competition: {lives: 1, hints: 1},
+    exploration: {lives: 5, hints: 2},
+    competition: {lives: 3, hints: 1},
   };
   const initialLives = statistics[mode].lives;
   const initialHints = statistics[mode].hints;
@@ -150,7 +150,11 @@ const QuizPlayScreen = ({route, navigation}) => {
           score={points}
           mode={mode}
         />
-        <ModalLose visible={loseModal} />
+        <ModalLose
+          visible={loseModal}
+          mode={mode}
+          playAgain={quizGameLevelRestart}
+        />
         {/* <TouchableOpacity onPress={activeNextLevelTestCall}>
           <Text>active next level </Text>
         </TouchableOpacity> */}

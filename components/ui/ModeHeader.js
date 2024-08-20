@@ -6,10 +6,11 @@ const ModeHeader = ({text}) => {
     <View
       style={{
         backgroundColor: COLOR.teal,
-        width: '60%',
+        width: '70%',
         paddingVertical: 10,
         alignItems: 'center',
         borderRadius: 12,
+        padding: 4,
       }}>
       <Text style={{color: COLOR.purple, fontWeight: '500', fontSize: 33}}>
         {text.toUpperCase()}
