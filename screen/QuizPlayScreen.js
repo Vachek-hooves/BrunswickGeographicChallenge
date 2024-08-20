@@ -104,6 +104,7 @@ const QuizPlayScreen = ({route, navigation}) => {
           disabled={unActive}
           correct={correctOption}
           onOption={currentOption}
+          rightAnswer={thisAnswer}
         />
         {activeNextBtn && <NextBtn onPress={showNextQuestion} />}
         <ModalCustom
