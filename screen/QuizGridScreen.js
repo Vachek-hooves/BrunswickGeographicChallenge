@@ -11,7 +11,7 @@ import {
 import MainLayout from '../components/Layout/MainLayout';
 import {useAppContext} from '../store/context';
 import {COLOR} from '../components/constant/color';
-import {useRef} from 'react';
+import {useMemo, useRef} from 'react';
 import {IconReturn} from '../components/Icons';
 import {ModeHeader} from '../components/ui';
 
@@ -22,9 +22,25 @@ const ITEM_SIZE = 10 + SPACING * 6;
 
 const QuizGridScreen = ({navigation, route}) => {
   const mode = route.params;
-
-  const {training} = useAppContext();
+  const {training, exploration, competition} = useAppContext();
   const scrollY = useRef(new Animated.Value(0)).current;
+
+  const data = useMemo(() => {
+    switch (mode) {
+      case 'training':
+        return training;
+      case 'exploration':
+        return exploration;
+      case 'competition':
+        return competition;
+      default:
+        return [];
+    }
+  }, [mode, training, exploration, competition]);
+
+  if (!data.length) {
+    return <Text>Loading...</Text>; // Показати повідомлення про завантаження
+  }
 
   return (
     <MainLayout>
@@ -35,11 +51,10 @@ const QuizGridScreen = ({navigation, route}) => {
           {useNativeDriver: true},
         )}
         showsVerticalScrollIndicator={false}
-        data={training}
+        data={data}
         keyExtractor={item => item.id}
         contentContainerStyle={{padding: SPACING}}
         renderItem={({item, index}) => {
-          console.log(item)
           const itemId = item.id;
           const inputRange = [
             -1,
@@ -64,6 +79,7 @@ const QuizGridScreen = ({navigation, route}) => {
 
           return (
             <TouchableOpacity
+             disabled={item.notActive}
               onPress={() =>
                 navigation.navigate('QuizPlayScreen', {mode, itemId})
               }>

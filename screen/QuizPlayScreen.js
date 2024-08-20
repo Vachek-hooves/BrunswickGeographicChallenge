@@ -1,13 +1,20 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {useAppContext} from '../store/context';
 import MainLayout from '../components/Layout/MainLayout';
 import {QuestionRender} from '../components/QuizPlayComponents';
 import OptionsRender from '../components/QuizPlayComponents/OptionsRender';
+import {COLOR} from '../components/constant/color';
 
-const QuizPlayScreen = ({route}) => {
+const QuizPlayScreen = ({route, navigation}) => {
   const {mode, itemId} = route.params;
-  const {returnQuizMode} = useAppContext();
+  const {returnQuizMode, activeNextLevelHandler} = useAppContext();
   const DATA = returnQuizMode(mode);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,6 +60,10 @@ const QuizPlayScreen = ({route}) => {
     setUnActive(false);
     setPoints(0);
   };
+  const activeNextLevelTestCall = () => {
+    navigation.navigate('QuizGridScreen', mode);
+    activeNextLevelHandler(itemId, mode);
+  };
 
   return (
     <MainLayout blur={9}>
@@ -65,6 +76,9 @@ const QuizPlayScreen = ({route}) => {
           correct={correctOption}
           onOption={currentOption}
         />
+        <TouchableOpacity onPress={activeNextLevelTestCall}>
+          <Text style={{color: COLOR.mint}}>ACTIVE NEXT LEVEL</Text>
+        </TouchableOpacity>
       </ScrollView>
     </MainLayout>
   );

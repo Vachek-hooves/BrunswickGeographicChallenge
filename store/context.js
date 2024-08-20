@@ -3,21 +3,17 @@ import {APP_DATA} from '../data/appData';
 import {getInitData, initData} from './asyncStorageUtils';
 
 export const AppContext = createContext({
-  normal: [],
-  hard: [],
   training: [],
   exploration: [],
   competition: [],
   returnQuizMode: () => {},
+  activeNextLevelHandler: () => {},
 });
 
 export const AppProvider = ({children}) => {
   const [training, setTraining] = useState([]);
   const [exploration, setExploration] = useState([]);
   const [competition, setCompetition] = useState([]);
-
-  const [normal, setNormal] = useState([]);
-  const [hard, setHard] = useState([]);
 
   useEffect(() => {
     startDataInit();
@@ -34,22 +30,25 @@ export const AppProvider = ({children}) => {
         await initData(APP_DATA, 'training');
         const level = await getInitData('training');
         setTraining(level);
+      } else {
+        setTraining(training);
       }
-      setTraining(training);
 
       if (exploration.length === 0) {
         await initData(APP_DATA, 'exploration');
         const level = await getInitData('exploration');
         setExploration(level);
+      } else {
+        setExploration(exploration);
       }
-      setExploration(exploration);
 
       if (competition.length === 0) {
         await initData(APP_DATA, 'competition');
         const level = await getInitData('competition');
         setCompetition(level);
+      } else {
+        setCompetition(competition);
       }
-      setCompetition(competition);
     } catch (error) {
       console.error('Data initialization failure', error);
     }
@@ -68,7 +67,43 @@ export const AppProvider = ({children}) => {
     }
   };
 
-  const value = {training, exploration, competition, returnQuizMode};
+  const activeNextLevelHandler = async (id, mode) => {
+    console.log(id, mode);
+    try {
+      const quizData = await getInitData(`${mode}`);
+      const thisQuizIndex = quizData.findIndex(quiz => quiz.id === id);
+      if (thisQuizIndex !== -1) {
+        const updatedQuiz = quizData.map((quiz, i) => {
+          if (i === thisQuizIndex + 1) {
+            return {...quiz, notActive: false};
+          }
+          return quiz;
+        });
+
+        console.log(updatedQuiz);
+        await initData(updatedQuiz, mode);
+
+        switch (mode) {
+          case 'training':
+            setTraining(updatedQuiz);
+          case 'exploration':
+            setExploration(updatedQuiz);
+          case 'competition':
+            setCompetition(updatedQuiz);
+          default:
+            break;
+        }
+      }
+    } catch (error) {}
+  };
+
+  const value = {
+    training,
+    exploration,
+    competition,
+    returnQuizMode,
+    activeNextLevelHandler,
+  };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
