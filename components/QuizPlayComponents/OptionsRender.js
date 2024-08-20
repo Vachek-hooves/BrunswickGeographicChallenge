@@ -1,10 +1,4 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLOR} from '../constant/color';
 
 const OptionsRender = ({options, onPress, disabled, correct, onOption}) => {
@@ -13,7 +7,6 @@ const OptionsRender = ({options, onPress, disabled, correct, onOption}) => {
       {options.map((option, i) => (
         <TouchableOpacity
           onPress={() => onPress(option)}
-          // disabled
           disabled={disabled}
           key={i}
           style={[
@@ -52,16 +45,12 @@ export default OptionsRender;
 const styles = StyleSheet.create({
   optionBox: {
     marginVertical: 13,
-    // backgroundColor: COLORS.warm,
     borderRadius: 32,
     padding: 5,
-    // height: optionsContainerHeight(),
     justifyContent: 'center',
-    // width: '100%',
-    borderWidth: 2,
+    borderWidth: 3,
     borderColor: COLOR.teal,
     height: 80,
- 
   },
   optionText: {
     textAlign: 'center',

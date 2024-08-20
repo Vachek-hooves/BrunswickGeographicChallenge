@@ -23,6 +23,7 @@ const QuizPlayScreen = ({route, navigation}) => {
     competition: {lives: 1, hints: 1},
   };
   const initialLives = statistics[mode].lives;
+  const initialHints = statistics[mode].hints;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentOption, setCurrentOption] = useState(null);
@@ -93,6 +94,7 @@ const QuizPlayScreen = ({route, navigation}) => {
           totalQuestions={questionBox.length}
           mode={mode}
           lives={lives}
+          hints={initialHints}
         />
         <ImageRender image={IMAGE} name={NAME} />
         <QuestionRender question={thisQuestion} />
