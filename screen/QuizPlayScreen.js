@@ -69,7 +69,7 @@ const QuizPlayScreen = ({route, navigation}) => {
       if (lives > 0) {
         setShowModal(true);
       }
-    } else if (lives <= 0) {
+    } else if (lives == 0) {
       setLoseModal(true);
     } else {
       setCurrentIndex(currentIndex + 1);
@@ -128,7 +128,7 @@ const QuizPlayScreen = ({route, navigation}) => {
           totalQuestions={questionBox.length}
           mode={mode}
           lives={lives}
-          hints={initialHints}
+          hints={hints}
           onHintPress={handleHintPress}
         />
         <ImageRender image={IMAGE} name={NAME} />
