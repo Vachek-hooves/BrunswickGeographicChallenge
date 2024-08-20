@@ -7,8 +7,8 @@ const IconHint = () => {
       source={require('../../assets/img/icon/hint.png')}
       style={{
         tintColor: COLOR.yelloMatte,
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
       }}
     />
   );
