@@ -25,10 +25,6 @@ export const AppProvider = ({children}) => {
 
   const startDataInit = async () => {
     try {
-      const [normalData, hardData] = await Promise.all([
-        getInitData('normal'),
-        getInitData('hard'),
-      ]);
       const [training, exploration, competition] = await Promise.all([
         getInitData('training'),
         getInitData('exploration'),
@@ -54,20 +50,6 @@ export const AppProvider = ({children}) => {
         setCompetition(level);
       }
       setCompetition(competition);
-
-      if (normalData.length === 0) {
-        await initData(APP_DATA, 'normal');
-        const level = await getInitData('normal');
-        setNormal(level);
-      }
-      setNormal(normalData);
-
-      if (hardData.length === 0) {
-        await initData(APP_DATA, 'hard');
-        const level = await getInitData('hard');
-        setHard(level);
-      }
-      setHard(hardData);
     } catch (error) {
       console.error('Data initialization failure', error);
     }

@@ -63,7 +63,7 @@ const QuizPlayScreen = ({route}) => {
           onPress={checkIsAnswerValid}
           disable={unActive}
           correct={correctOption}
-          
+          onOption={currentOption}
         />
       </ScrollView>
     </MainLayout>
