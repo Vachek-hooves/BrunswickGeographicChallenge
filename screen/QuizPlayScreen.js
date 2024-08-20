@@ -33,6 +33,8 @@ const QuizPlayScreen = ({route, navigation}) => {
   const [activeNextBtn, setActiveNextBtn] = useState(false);
   const [points, setPoints] = useState(0);
   const [lives, setLives] = useState(initialLives);
+  const [hints, setHints] = useState(initialHints);
+  const [filteredOptions, setFilteredOptions] = useState([]);
 
   const QUIZ_DATA = DATA.find(quiz => quiz.id === itemId);
   const questionBox = QUIZ_DATA.questionsBox;
@@ -84,6 +86,26 @@ const QuizPlayScreen = ({route, navigation}) => {
     activeNextLevelHandler(itemId, mode);
   };
 
+  const handleHintPress = () => {
+    if (hints > 0) {
+      // Call removeWrongOption to update options
+      removeWrongOption();
+      // Decrement hint count
+      setHints(hints - 1);
+    }
+  };
+  const removeWrongOption = () => {
+    const wrongOptions = thisOptions.filter(option => option !== thisAnswer);
+
+    if (wrongOptions.length >= 2) {
+      const randomIndex = Math.floor(Math.random() * wrongOptions.length);
+      const optionToRemove = wrongOptions[randomIndex];
+      setFilteredOptions(
+        thisOptions.filter(option => option !== optionToRemove),
+      );
+    }
+  };
+
   return (
     <MainLayout blur={9}>
       <ScrollView
@@ -95,11 +117,13 @@ const QuizPlayScreen = ({route, navigation}) => {
           mode={mode}
           lives={lives}
           hints={initialHints}
+          onHintPress={handleHintPress}
         />
         <ImageRender image={IMAGE} name={NAME} />
         <QuestionRender question={thisQuestion} />
         <OptionsRender
-          options={thisOptions}
+          options={filteredOptions.length > 0 ? filteredOptions : thisOptions}
+          // options={thisOptions}
           onPress={checkIsAnswerValid}
           disabled={unActive}
           correct={correctOption}
