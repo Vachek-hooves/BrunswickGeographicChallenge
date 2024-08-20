@@ -1,12 +1,4 @@
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Modal,
-  ImageBackground,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {useAppContext} from '../store/context';
 import MainLayout from '../components/Layout/MainLayout';
@@ -18,16 +10,18 @@ import {
   ImageRender,
   StatisticRendering,
 } from '../components/QuizPlayComponents';
-import {BlurCustomContainer, MainBgImage} from '../components/ui';
 import {IMAGES} from '../data/appData';
 
 const QuizPlayScreen = ({route, navigation}) => {
-  console.log(IMAGES[0].image);
-  const image = IMAGES[0].image;
-  // console.log(require(`../assets/img/quizImg/${FamousPersonalities}.png`));
   const {mode, itemId} = route.params;
   const {returnQuizMode, activeNextLevelHandler} = useAppContext();
   const DATA = returnQuizMode(mode);
+  const statistics = {
+    training: {lives: 6, hints: 5},
+    exploration: {lives: 3, hints: 2},
+    competition: {lives: 2, hints: 1},
+  };
+  const initialLives = statistics[mode].lives;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentOption, setCurrentOption] = useState(null);
@@ -36,12 +30,8 @@ const QuizPlayScreen = ({route, navigation}) => {
   const [showModal, setShowModal] = useState(false);
   const [activeNextBtn, setActiveNextBtn] = useState(false);
   const [points, setPoints] = useState(0);
+  const [lives, setLives] = useState(initialLives);
 
-  // const QUIZ_DATA = DATA.find(quiz => quiz.id === itemId).questionsBox;
-  // const QUIZ_BOX = QUIZ_DATA[currentIndex];
-  // const thisQuestion = QUIZ_BOX.question || '';
-  // const thisOptions = QUIZ_BOX.options || '';
-  // const thisAnswer = QUIZ_BOX.right || '';
   const QUIZ_DATA = DATA.find(quiz => quiz.id === itemId);
   const questionBox = QUIZ_DATA.questionsBox;
   const thisQuestion = questionBox[currentIndex].question || '';
@@ -49,20 +39,25 @@ const QuizPlayScreen = ({route, navigation}) => {
   const thisAnswer = questionBox[currentIndex].right || '';
   const IMAGE = IMAGES.find(image => image.id === itemId).image;
   const NAME = QUIZ_DATA.header;
-  console.log(NAME);
 
   const checkIsAnswerValid = selectedOption => {
     setCurrentOption(selectedOption);
     setCorrectOption(thisAnswer);
     setUnActive(true);
+
     if (selectedOption === thisAnswer) {
       setPoints(points + 1);
+    } else {
+      setLives(prevLives => prevLives - 1);
+      if (lives - 1 <= 0) {
+        setShowModal(true);
+      }
     }
     setActiveNextBtn(true);
   };
 
   const showNextQuestion = () => {
-    if (currentIndex === questionBox.length - 1) {
+    if (currentIndex === questionBox.length - 1 || lives === 0) {
       setShowModal(true);
     } else {
       setCurrentIndex(currentIndex + 1);
@@ -80,6 +75,7 @@ const QuizPlayScreen = ({route, navigation}) => {
     setCorrectOption(null);
     setUnActive(false);
     setPoints(0);
+    setLives(initialLives);
   };
   const activeNextLevelTestCall = () => {
     navigation.navigate('QuizGridScreen', mode);
@@ -95,6 +91,7 @@ const QuizPlayScreen = ({route, navigation}) => {
           score={points}
           totalQuestions={questionBox.length}
           mode={mode}
+          lives={lives}
         />
         <ImageRender image={IMAGE} name={NAME} />
         <QuestionRender question={thisQuestion} />

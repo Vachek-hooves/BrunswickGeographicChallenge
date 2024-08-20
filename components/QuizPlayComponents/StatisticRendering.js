@@ -1,15 +1,15 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLOR} from '../constant/color';
 import {IconHint, IconLife, IconMedal} from '../Icons';
 
-const StatisticRendering = ({score, totalQuestions, mode}) => {
+const StatisticRendering = ({score, totalQuestions, mode, lives}) => {
   const statistics = {
     training: {lives: 6, hints: 5},
     exploration: {lives: 3, hints: 2},
     competition: {lives: 2, hints: 1},
   };
 
-  const {lives, hints} = statistics[mode] || {};
+  const {hints} = statistics[mode] || {};
 
   return (
     <>
@@ -19,7 +19,6 @@ const StatisticRendering = ({score, totalQuestions, mode}) => {
         <IconWithText value={hints} IconComponent={IconHint} />
       </View>
     </>
-   
   );
 };
 
@@ -43,8 +42,8 @@ const styles = StyleSheet.create({
 });
 
 const IconWithText = ({value, IconComponent}) => (
-  <View style={styles.iconContainer}>
+  <TouchableOpacity style={styles.iconContainer}>
     <Text style={{color: COLOR.yelloMatte, fontSize: 32}}>{value}</Text>
     <IconComponent />
-  </View>
+  </TouchableOpacity>
 );
