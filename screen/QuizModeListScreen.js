@@ -5,7 +5,7 @@ import {IconReturn} from '../components/Icons';
 
 const QuizListScreen = () => {
   return (
-    <MainLayout>
+    <MainLayout style={{alignItems: 'center'}}>
       <View style={{width: '80%', gap: 20}}>
         <MenuBtn screenName={'QuizGridScreen'} mode={'training'}>
           TRAINING

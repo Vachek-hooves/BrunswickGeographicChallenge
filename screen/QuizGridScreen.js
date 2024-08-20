@@ -43,7 +43,7 @@ const QuizGridScreen = ({navigation, route}) => {
   }
 
   return (
-    <MainLayout>
+    <MainLayout style={{alignItems: 'center'}}>
       <ModeHeader text={mode} />
       <Animated.FlatList
         onScroll={Animated.event(

@@ -855,51 +855,51 @@ export const IMAGES = [
   {
     image: require('../assets/img/quizImg/MythsAndLegends.png'),
     name: 'Myths And Legends of Brunswick',
-    id: 'i1',
+    id: 'st1',
   },
   {
     image: require('../assets/img/quizImg/ArchitecturalDetails.png'),
     name: 'ArchitecuralDetails',
-    id: 'i2',
+    id: 'st2',
   },
   {
     image: require('../assets/img/quizImg/CulinarySecrets.png'),
     name: 'Culinary Secrets',
-    id: 'i3',
+    id: 'st3',
   },
   {
     image: require('../assets/img/quizImg/HistoricalEvents.png'),
     name: 'Hystorical Events',
-    id: 'i4',
+    id: 'st4',
   },
   {
     image: require('../assets/img/quizImg/FamousPersonalities.png'),
-    name: 'Famous Personalities',
-    id: 'i5',
+    name: 'FamousPersonalities',
+    id: 'st5',
   },
   {
     image: require('../assets/img/quizImg/NaturalAttractions.png'),
     name: 'Natural Attractions',
-    id: 'i6',
+    id: 'st6',
   },
   {
     image: require('../assets/img/quizImg/ArtOfCulture.png'),
     name: 'Art and Culture',
-    id: 'i7',
+    id: 'st7',
   },
   {
     image: require('../assets/img/quizImg/TraditionsAndFestivals.png'),
     name: 'Traditions and Festivals',
-    id: 'i8',
+    id: 'st8',
   },
   {
     image: require('../assets/img/quizImg/ModernAttractions.png'),
     name: 'Modern Attractions',
-    id: 'i9',
+    id: 'st9',
   },
   {
     image: require('../assets/img/quizImg/CityLegendsSuperstitions.png'),
     name: 'City Legends and Superstitions',
-    id: 'i10',
+    id: 'st10',
   },
 ];

@@ -8,4 +8,6 @@ export const COLOR = {
   orange: '#FB6D48',
   pinkMatte: '#D74B76',
   purple: '#673F69',
+  success: '#00712D',
+  denied: '#E4003A',
 };

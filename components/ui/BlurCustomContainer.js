@@ -1,9 +1,9 @@
 import {StyleSheet, View} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
-const BlurCustomContainer = ({children, blur}) => {
+const BlurCustomContainer = ({children, blur,style}) => {
   return (
-    <View style={styles.blurContainer}>
+    <View style={[styles.blurContainer, style]}>
       <BlurView
         style={styles.absolute}
         blurType="dark"

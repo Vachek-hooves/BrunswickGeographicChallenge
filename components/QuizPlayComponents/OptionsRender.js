@@ -1,30 +1,47 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {COLOR} from '../constant/color';
 
 const OptionsRender = ({options, onPress, disabled, correct, onOption}) => {
   return (
-    <View style={{alignItems: 'center'}}>
+    <View>
       {options.map((option, i) => (
-        <Pressable
+        <TouchableOpacity
           onPress={() => onPress(option)}
-          disabled
+          // disabled
+          disabled={disabled}
           key={i}
-          style={[{}]}>
+          style={[
+            styles.optionBox,
+            {
+              backgroundColor:
+                option === correct
+                  ? COLOR.success
+                  : option == onOption
+                  ? COLOR.denied
+                  : COLOR.pinkMatte,
+            },
+          ]}>
           <Text
             style={[
-              styles.text,
+              styles.optionText,
               {
                 color:
                   option == correct
-                    ? COLOR.white
+                    ? COLOR.textColor
                     : option == onOption
-                    ? COLOR.white
+                    ? COLOR.textColor
                     : COLOR.softYello,
               },
             ]}>
             {option}
           </Text>
-        </Pressable>
+        </TouchableOpacity>
       ))}
     </View>
   );
@@ -32,4 +49,24 @@ const OptionsRender = ({options, onPress, disabled, correct, onOption}) => {
 
 export default OptionsRender;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  optionBox: {
+    marginVertical: 13,
+    // backgroundColor: COLORS.warm,
+    borderRadius: 32,
+    // padding: 5,
+    // height: optionsContainerHeight(),
+    justifyContent: 'center',
+    // width: '100%',
+    borderWidth: 2,
+    borderColor: COLOR.teal,
+    height: 65,
+ 
+  },
+  optionText: {
+    textAlign: 'center',
+    fontWeight: '700',
+    fontSize: 20,
+    letterSpacing: 1.2,
+  },
+});
