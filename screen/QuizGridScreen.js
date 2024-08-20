@@ -12,7 +12,7 @@ import MainLayout from '../components/Layout/MainLayout';
 import {useAppContext} from '../store/context';
 import {COLOR} from '../components/constant/color';
 import {useMemo, useRef} from 'react';
-import {IconReturn} from '../components/Icons';
+import {IconGameHide, IconReturn} from '../components/Icons';
 import {ModeHeader} from '../components/ui';
 
 const {width, height} = Dimensions.get('screen');
@@ -56,6 +56,7 @@ const QuizGridScreen = ({navigation, route}) => {
         contentContainerStyle={{padding: SPACING}}
         renderItem={({item, index}) => {
           const itemId = item.id;
+          const isDisabled = item.notActive;
           const inputRange = [
             -1,
             0,
@@ -79,7 +80,7 @@ const QuizGridScreen = ({navigation, route}) => {
 
           return (
             <TouchableOpacity
-             disabled={item.notActive}
+              disabled={isDisabled}
               onPress={() =>
                 navigation.navigate('QuizPlayScreen', {mode, itemId})
               }>
@@ -87,10 +88,12 @@ const QuizGridScreen = ({navigation, route}) => {
                 style={{
                   // height: ITEM_SIZE,
                   padding: SPACING,
-                  marginBottom: SPACING + 20,
+                  marginBottom: SPACING + 30,
                   borderRadius: 12,
                   borderColor: COLOR.teal,
-                  backgroundColor: COLOR.purple,
+                  backgroundColor: isDisabled
+                    ? COLOR.purple + 40
+                    : COLOR.purple,
                   shadowColor: COLOR.purple,
                   shadowOffset: {width: 0, height: 10},
                   shadowOpacity: 0.5,
@@ -102,11 +105,12 @@ const QuizGridScreen = ({navigation, route}) => {
                   style={{
                     fontSize: 30,
                     textAlign: 'center',
-                    color: COLOR.mint,
+                    color: isDisabled ? COLOR.mint + 30 : COLOR.mint,
                     fontWeight: '600',
                   }}>
                   {item.header}
                 </Text>
+                {isDisabled && <IconGameHide />}
               </Animated.View>
             </TouchableOpacity>
           );
