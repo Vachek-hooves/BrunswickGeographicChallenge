@@ -4,6 +4,8 @@ import {
   View,
   Modal,
   ImageBackground,
+  TouchableOpacity,
+  Text,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useAppContext} from '../store/context';
@@ -99,6 +101,9 @@ const QuizPlayScreen = ({route, navigation}) => {
         />
         {activeNextBtn && <NextBtn onPress={showNextQuestion} />}
         <ModalCustom visible={showModal} playAgain={quizGameLevelRestart} />
+        {/* <TouchableOpacity onPress={activeNextLevelTestCall}>
+          <Text>active next level </Text>
+        </TouchableOpacity> */}
       </ScrollView>
     </MainLayout>
   );

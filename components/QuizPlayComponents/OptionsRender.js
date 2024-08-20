@@ -54,19 +54,19 @@ const styles = StyleSheet.create({
     marginVertical: 13,
     // backgroundColor: COLORS.warm,
     borderRadius: 32,
-    // padding: 5,
+    padding: 5,
     // height: optionsContainerHeight(),
     justifyContent: 'center',
     // width: '100%',
     borderWidth: 2,
     borderColor: COLOR.teal,
-    height: 65,
+    height: 80,
  
   },
   optionText: {
     textAlign: 'center',
     fontWeight: '700',
-    fontSize: 20,
+    fontSize: 22,
     letterSpacing: 1.2,
   },
 });

@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.purple,
     borderRadius: 12,
     borderWidth: 2,
+    marginTop: 20,
   },
   text: {
     fontSize: 24,

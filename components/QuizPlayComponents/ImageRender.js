@@ -13,6 +13,8 @@ const ImageRender = ({image, name}) => {
         width: ' 100%',
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 12,
+        overflow: 'hidden',
       }}>
       <Text
         style={{

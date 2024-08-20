@@ -86,10 +86,13 @@ export const AppProvider = ({children}) => {
         switch (mode) {
           case 'training':
             setTraining(updatedQuiz);
+            break;
           case 'exploration':
             setExploration(updatedQuiz);
+            break;
           case 'competition':
             setCompetition(updatedQuiz);
+            break;
           default:
             break;
         }
