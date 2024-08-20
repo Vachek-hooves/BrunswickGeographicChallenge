@@ -9,6 +9,7 @@ import {
   ModalCustom,
   ImageRender,
   StatisticRendering,
+  ModalLose,
 } from '../components/QuizPlayComponents';
 import {IMAGES} from '../data/appData';
 
@@ -19,7 +20,7 @@ const QuizPlayScreen = ({route, navigation}) => {
 
   const statistics = {
     training: {lives: 8, hints: 0},
-    exploration: {lives: 3, hints: 2},
+    exploration: {lives: 4, hints: 2},
     competition: {lives: 1, hints: 1},
   };
   const initialLives = statistics[mode].lives;
@@ -30,6 +31,7 @@ const QuizPlayScreen = ({route, navigation}) => {
   const [correctOption, setCorrectOption] = useState(null);
   const [unActive, setUnActive] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [loseModal, setLoseModal] = useState(false);
   const [activeNextBtn, setActiveNextBtn] = useState(false);
   const [points, setPoints] = useState(0);
   const [lives, setLives] = useState(initialLives);
@@ -54,15 +56,21 @@ const QuizPlayScreen = ({route, navigation}) => {
     } else {
       setLives(prevLives => prevLives - 1);
       if (lives - 1 <= 0) {
-        setShowModal(true);
+        // setShowModal(true);
+        setLoseModal(true);
+        return;
       }
     }
     setActiveNextBtn(true);
   };
 
   const showNextQuestion = () => {
-    if (currentIndex === questionBox.length - 1 || lives === 0) {
-      setShowModal(true);
+    if (currentIndex === questionBox.length - 1) {
+      if (lives > 0) {
+        setShowModal(true);
+      }
+    } else if (lives <= 0) {
+      setLoseModal(true);
     } else {
       setCurrentIndex(currentIndex + 1);
       setCurrentOption(null);
@@ -74,12 +82,16 @@ const QuizPlayScreen = ({route, navigation}) => {
 
   const quizGameLevelRestart = () => {
     setShowModal(false);
+    setLoseModal(false);
     setCurrentIndex(0);
     setCurrentOption(null);
     setCorrectOption(null);
     setUnActive(false);
     setPoints(0);
     setLives(initialLives);
+
+    setHints(initialHints);
+    setFilteredOptions([]);
   };
   const activeNextLevelTestCall = () => {
     navigation.navigate('QuizGridScreen', mode);
@@ -136,7 +148,9 @@ const QuizPlayScreen = ({route, navigation}) => {
           playAgain={quizGameLevelRestart}
           unlockNext={activeNextLevelTestCall}
           score={points}
+          mode={mode}
         />
+        <ModalLose visible={loseModal} />
         {/* <TouchableOpacity onPress={activeNextLevelTestCall}>
           <Text>active next level </Text>
         </TouchableOpacity> */}

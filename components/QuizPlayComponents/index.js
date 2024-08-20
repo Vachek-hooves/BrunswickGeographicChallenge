@@ -5,6 +5,7 @@ import ModalCustom from './ModalCustom';
 import ImageRender from './ImageRender';
 import LevelNameRender from './LevelNameRender';
 import StatisticRendering from './StatisticRendering';
+import ModalLose from './ModalLose';
 
 export {
   QuestionRender,
@@ -14,4 +15,5 @@ export {
   ImageRender,
   LevelNameRender,
   StatisticRendering,
+  ModalLose,
 };
