@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginVertical: 5,
+    marginBottom: 5,
   },
   iconContainer: {
     flexDirection: 'row',

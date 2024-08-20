@@ -11,7 +11,7 @@ const OptionsRender = ({
   rightAnswer,
 }) => {
   const [filteredOptions, setFilteredOptions] = useState(options);
-  
+
   useEffect(() => {
     setFilteredOptions(options);
   }, [options]);
@@ -30,7 +30,6 @@ const OptionsRender = ({
       );
     }
   };
-  console.log(options);
 
   return (
     <View>
