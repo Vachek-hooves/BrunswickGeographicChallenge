@@ -26,8 +26,8 @@ const ModalCustom = ({visible, playAgain, unlockNext, score, mode}) => {
               You should reach more than 8 right answers to unlock next level
             </Text>
           ) : (
-            <TouchableOpacity style={styles.button} onPress={unlockNext}>
-              <Text style={styles.buttonText}>UNLOCK NEXT LVL</Text>
+            <TouchableOpacity style={styles.buttonNext} onPress={unlockNext}>
+              <Text style={styles.buttonText}>UNLOCK NEXT LEVEL</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -62,4 +62,19 @@ const styles = StyleSheet.create({
     borderColor: COLOR.brown,
   },
   btnRestartText: {color: COLOR.brown, fontWeight: '600', fontSize: 22},
+  buttonNext: {
+    borderWidth: 1,
+    alignItems: 'center',
+    paddingVertical: 10,
+    borderRadius: 12,
+    backgroundColor: COLOR.mint,
+    borderColor: COLOR.brown,
+    width: '100%',
+    marginTop: 40,
+  },
+  buttonText: {
+    color: COLOR.brown,
+    fontWeight: '600',
+    fontSize: 22,
+  },
 });
