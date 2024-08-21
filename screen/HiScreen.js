@@ -18,7 +18,7 @@ const HiScreen = ({navigation}) => {
     <MainBgImage>
       <SafeAreaView>
         <View>
-          <Text style={styles.text}>Brunswick Geographic Quiz</Text>
+          <Text style={styles.text}>Brunswick Geographic Challenge</Text>
         </View>
       </SafeAreaView>
     </MainBgImage>
