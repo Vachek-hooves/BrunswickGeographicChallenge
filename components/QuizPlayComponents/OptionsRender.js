@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLOR} from '../constant/color';
 import {useState, useEffect} from 'react';
+import {optionsHeight} from '../styles/style';
 
 const OptionsRender = ({
   options,
@@ -15,21 +16,6 @@ const OptionsRender = ({
   useEffect(() => {
     setFilteredOptions(options);
   }, [options]);
-
-  // const removeWrongOption = () => {
-  //   const wrongOptions = filteredOptions.filter(
-  //     option => option !== rightAnswer,
-  //   );
-
-  //   if (wrongOptions.length >= 2) {
-  //     const randomIndex = Math.floor(Math.random() * wrongOptions.length);
-  //     console.log(randomIndex);
-  //     const optionToRemove = wrongOptions[randomIndex];
-  //     setFilteredOptions(
-  //       filteredOptions.filter(option => option !== optionToRemove),
-  //     );
-  //   }
-  // };
 
   return (
     <View>
@@ -65,14 +51,6 @@ const OptionsRender = ({
           </Text>
         </TouchableOpacity>
       ))}
-      {/* <TouchableOpacity
-        onPress={removeWrongOption}
-        style={[styles.removeButton, {backgroundColor: COLOR.teal}]}>
-        <Text
-          style={{color: COLOR.textColor, fontSize: 22, textAlign: 'center'}}>
-          Delete wrong option
-        </Text>
-      </TouchableOpacity> */}
     </View>
   );
 };
@@ -87,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 3,
     borderColor: COLOR.teal,
-    height: 80,
+    height: optionsHeight(),
   },
   optionText: {
     textAlign: 'center',

@@ -81,7 +81,7 @@ const QuizAboutScreen = () => {
               </Text>
             </View>
           </ScrollView>
-          <View style={{marginVertical: 15, alignSelf: 'flex-end',marginRight:50}}>
+          <View style={{marginTop: 10, alignSelf: 'flex-end',marginRight:50}}>
             <IconReturn />
           </View>
         </SafeAreaView>
