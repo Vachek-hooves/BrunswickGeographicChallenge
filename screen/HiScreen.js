@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: '600',
     color: COLOR.brown,
-    fontSize: 46,
+    fontSize: 52,
     textAlign: 'center',
-    letterSpacing: 5,
+    letterSpacing: 3,
   },
 });

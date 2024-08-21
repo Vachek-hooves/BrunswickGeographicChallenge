@@ -2,13 +2,16 @@ import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import MainLayout from '../components/Layout/MainLayout';
 import {BlurCustomContainer, MainBgImage} from '../components/ui';
 import {COLOR} from '../components/constant/color';
+import {IconReturn} from '../components/Icons';
 
 const QuizAboutScreen = () => {
   return (
     <MainBgImage>
       <BlurCustomContainer style={{padding: 10}}>
         <SafeAreaView style={{alignItems: 'center'}}>
-          <ScrollView showsVerticalScrollIndicator={false}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{height: '90%'}}>
             <Text style={styles.mainHeader}>
               Brunswick Geographic Challenge Quizs
             </Text>
@@ -78,6 +81,9 @@ const QuizAboutScreen = () => {
               </Text>
             </View>
           </ScrollView>
+          <View style={{marginVertical: 15, alignSelf: 'flex-end',marginRight:50}}>
+            <IconReturn />
+          </View>
         </SafeAreaView>
       </BlurCustomContainer>
     </MainBgImage>
