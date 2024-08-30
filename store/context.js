@@ -19,42 +19,27 @@ export const AppProvider = ({children}) => {
     startDataInit();
   }, []);
 
-  
-
-  const startDataInit = async () => {
+  const initializeModeData = async (mode, setMode) => {
     try {
-      const [training, exploration, competition] = await Promise.all([
-        getInitData('training'),
-        getInitData('exploration'),
-        getInitData('competition'),
-      ]);
-      if (training.length === 0) {
-        await initData(APP_DATA, 'training');
-        const level = await getInitData('training');
-        setTraining(level);
-      } else {
-        setTraining(training);
+      let data = await getInitData(mode);
+      if (data.length === 0) {
+        await initData(APP_DATA, mode);
+        data = await getInitData(mode);
       }
-
-      if (exploration.length === 0) {
-        await initData(APP_DATA, 'exploration');
-        const level = await getInitData('exploration');
-        setExploration(level);
-      } else {
-        setExploration(exploration);
-      }
-
-      if (competition.length === 0) {
-        await initData(APP_DATA, 'competition');
-        const level = await getInitData('competition');
-        setCompetition(level);
-      } else {
-        setCompetition(competition);
-      }
+      setMode(data);
     } catch (error) {
-      console.error('Data initialization failure', error);
+      console.error(`Failed to initialize data for  ${mode}`, error);
     }
   };
+
+  const startDataInit = async () => {
+    await Promise.all([
+      initializeModeData('training', setTraining),
+      initializeModeData('exploration', setExploration),
+      initializeModeData('competition', setCompetition),
+    ]);
+  };
+
 
   const returnQuizMode = mode => {
     switch (mode) {
@@ -65,7 +50,7 @@ export const AppProvider = ({children}) => {
       case 'competition':
         return competition;
       default:
-        break;
+        return [];
     }
   };
 
