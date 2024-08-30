@@ -2,14 +2,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLOR} from '../constant/color';
 import {IconHint, IconLife, IconMedal} from '../Icons';
 
-const StatisticRendering = ({
-  score,
-  totalQuestions,
-  mode,
-  lives,
-  hints,
-  onHintPress,
-}) => {
+const StatisticRendering = ({score, lives, hints, onHintPress}) => {
   return (
     <>
       <View style={styles.container}>

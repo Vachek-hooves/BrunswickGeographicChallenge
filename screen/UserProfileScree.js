@@ -8,7 +8,6 @@ import {
   SafeAreaView,
   Dimensions,
 } from 'react-native';
-import MainLayout from '../components/Layout/MainLayout';
 import {COLOR} from '../components/constant/color';
 import {useState, useEffect} from 'react';
 import {fetchUser, updateUser, saveUser} from '../store/asyncStorageUtils';
@@ -25,13 +24,12 @@ const UserProfileScree = () => {
   const [userData, setUserData] = useState(null);
   const [userInputs, setUserInputs] = useState({name: '', image: ''});
 
-  console.log(userInputs);
+
   const uuid = () => Date.now().toString();
 
   useEffect(() => {
     const fetchUserData = async () => {
       const data = await fetchUser();
-      console.log(data);
       setUserData(data);
     };
     fetchUserData();
@@ -108,7 +106,6 @@ const UserProfileScree = () => {
 };
 
 const UserDataDetails = ({data}) => {
-  console.log(data);
   const [userIsChanges, setUserIsChanges] = useState(false);
   const [userName, setUserName] = useState(data.name);
   const [userPickture, setUserPickture] = useState(data.image);

@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Modal, TouchableOpacity} from 'react-native';
 import {COLOR} from '../constant/color';
 
 const ModalCustom = ({visible, playAgain, unlockNext, score, mode}) => {
-  console.log(mode);
+
   const shouldShowUnlockMessage = mode === 'training' && score < 8;
 
   return (

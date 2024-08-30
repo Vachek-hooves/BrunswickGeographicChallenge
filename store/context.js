@@ -19,6 +19,8 @@ export const AppProvider = ({children}) => {
     startDataInit();
   }, []);
 
+  
+
   const startDataInit = async () => {
     try {
       const [training, exploration, competition] = await Promise.all([
@@ -68,7 +70,6 @@ export const AppProvider = ({children}) => {
   };
 
   const activeNextLevelHandler = async (id, mode) => {
-    console.log(id, mode);
     try {
       const quizData = await getInitData(`${mode}`);
       const thisQuizIndex = quizData.findIndex(quiz => quiz.id === id);
@@ -79,10 +80,7 @@ export const AppProvider = ({children}) => {
           }
           return quiz;
         });
-
-        console.log(updatedQuiz);
         await initData(updatedQuiz, mode);
-
         switch (mode) {
           case 'training':
             setTraining(updatedQuiz);
